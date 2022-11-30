@@ -24,15 +24,6 @@
 
     }
 
-
-    .flex {
-      /*Flexbox for containers*/
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-    }
-
     .waves {
       position: relative;
       width: 100%;
@@ -101,8 +92,8 @@
               <div class="text-center text-md-start">
                 <h3 class="mb-0">Clustering Data Covid 19 - K-mean</h3>
                 <small class="text-dark">Clustering dengan menggunakan 4 fitur yaitu
-                  <strong>total kasus, total kasus aktif, populasi dan total
-                    kematian.</strong></small>
+                  <strong>total kasus, total kasus aktif, total kasus sembuh, dan total kasus meninggal</strong>
+                </small>
               </div>
               <form class="mb-3 mt-md-3" action="/result" method="POST">
                 <div class="mb-3">
@@ -110,28 +101,28 @@
                     Total Cases
                   </label>
                   <input type="number" class="form-control" name="total_cases" id="total_cases"
-                    placeholder="Total Cases" />
+                    placeholder="Total Cases" required>
                 </div>
                 <div class="mb-3">
                   <label class="form-label" style="font-size: small">
                     Total Active Cases
                   </label>
                   <input type="number" class="form-control" name="total_active_cases" id="total_active_cases"
-                    placeholder="Total Active Cases" />
+                    placeholder="Total Active Cases" required>
                 </div>
                 <div class="mb-3">
                   <label class="form-label" style="font-size: small">
-                    Population
+                    Total Recovered
                   </label>
-                  <input type="number" class="form-control" name="population" id="population"
-                    placeholder="Population" />
+                  <input type="number" class="form-control" name="total_recovered" id="total_recovered"
+                    placeholder="Total Recovered" required>
                 </div>
                 <div class="mb-3">
                   <label class="form-label" style="font-size: small">
                     Total Deaths
                   </label>
                   <input type="number" class="form-control" name="total_deaths" id="total_deaths"
-                    placeholder="Total Deaths" />
+                    placeholder="Total Deaths" required>
                 </div>
                 <div class="d-grid">
                   <button type="submit" class="btn btn-primary">
