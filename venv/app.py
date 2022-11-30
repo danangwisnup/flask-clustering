@@ -22,6 +22,7 @@ def ValuePredictor(to_predict_list):
     return result[0]
 
 # Membuat fungsi untuk mengambil nilai dari form
+#app.route akan memetakan URL ke fungsi tertentu yang akan menangani logika untuk URL tersebut
 @app.route('/result', methods=['POST'])
 def result():
     if request.method == 'POST':
