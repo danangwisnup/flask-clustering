@@ -2,50 +2,139 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Clustering</title>
-
-  <link rel="icon" href="https://img.icons8.com/ios-filled/50" />
 
   <!-- Theme CSS -->
   <link id="style-switch" rel="stylesheet" type="text/css"
-    href="https://cdn.jsdelivr.net/gh/danangwisnup/cdn-bootstrap-5/css/style.css">
+    href="https://cdn.jsdelivr.net/gh/danangwisnup/cdn-bootstrap-5/css/style.css" />
 
   <style>
     body {
-      background-image: url(/static/img/bg-indo.png);
+      margin: 0;
+    }
+
+    .header {
+      position: relative;
+      background: linear-gradient(60deg,
+          rgba(84, 58, 183, 1) 0%,
+          rgba(0, 172, 193, 1) 100%);
+
+    }
+
+
+    .flex {
+      /*Flexbox for containers*/
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+
+    .waves {
+      position: relative;
+      width: 100%;
+      height: 15vh;
+      margin-bottom: -7px;
+      /*Fix for safari gap*/
+      min-height: 100px;
+      max-height: 150px;
+    }
+
+
+    /* Animation */
+
+    .parallax>use {
+      animation: move-forever 25s cubic-bezier(0.55, 0.5, 0.45, 0.5) infinite;
+    }
+
+    .parallax>use:nth-child(1) {
+      animation-delay: -2s;
+      animation-duration: 7s;
+    }
+
+    .parallax>use:nth-child(2) {
+      animation-delay: -3s;
+      animation-duration: 10s;
+    }
+
+    .parallax>use:nth-child(3) {
+      animation-delay: -4s;
+      animation-duration: 13s;
+    }
+
+    .parallax>use:nth-child(4) {
+      animation-delay: -5s;
+      animation-duration: 20s;
+    }
+
+    @keyframes move-forever {
+      0% {
+        transform: translate3d(-90px, 0, 0);
+      }
+
+      100% {
+        transform: translate3d(85px, 0, 0);
+      }
+    }
+
+    /*Shrinking for mobile*/
+    @media (max-width: 768px) {
+      .waves {
+        height: 40px;
+        min-height: 40px;
+      }
     }
   </style>
-
 </head>
 
 <body>
-  <div class="row justify-content-center align-item-center">
-    <div class="col-lg-10 col-md-10 col-sm-12 py-md-5">
-      <div class="card card-body">
-        <div class="row">
-          <div class="col-lg-12 col-md-12 col-sm-12 p-4 p-md-5 order-1 order-md-0">
-            <h3 class="text-2xl text-center">K-means Clustering COVID-19 Indonesia</h3>
-            <div class="text-center">
-              <h2 class="btn btn-primary">
-                {{ clustering }}
-              </h2>
-              <div class="flex justify-center">
-                <a href="{{ url_for('index') }}" class="btn btn-primary">Back</a>
+  <div class="header">
+    <!--Content before waves-->
+    <div class="row justify-content-center align-item-center">
+      <div class="col-lg-10 col-md-10 col-sm-12 py-md-5">
+        <div class="card card-body">
+          <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 p-4 p-md-5 order-1 order-md-0">
+              <h3 class="text-2xl text-center">K-means Clustering COVID-19 Indonesia</h3>
+              <div class="text-center">
+                <h2 class="btn btn-primary">
+                  {{ clustering }}
+                </h2>
+                <div class="flex justify-center">
+                  <a href="{{ url_for('index') }}" class="btn btn-primary">Back</a>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
     </div>
+
+    <!--Waves Container-->
+    <div>
+      <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+        viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+        <defs>
+          <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+        </defs>
+        <g class="parallax">
+          <use xlink:href="#gentle-wave" x="48" y="0" fill="rgba(255,255,255,0.7" />
+          <use xlink:href="#gentle-wave" x="48" y="3" fill="rgba(255,255,255,0.5)" />
+          <use xlink:href="#gentle-wave" x="48" y="5" fill="rgba(255,255,255,0.3)" />
+          <use xlink:href="#gentle-wave" x="48" y="7" fill="#fff" />
+        </g>
+      </svg>
+    </div>
+    <!--Waves end-->
   </div>
+  <!--Header ends-->
 
   <!-- Bootstrap JS -->
   <script
     src="https://cdn.jsdelivr.net/gh/danangwisnup/cdn-bootstrap-5/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-
 </body>
 
 </html>
