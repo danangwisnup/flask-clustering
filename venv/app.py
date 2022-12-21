@@ -45,6 +45,7 @@ def result():
             Ctotal_recovered = data[data['K-means'] == 0]['Total Recovered'].mean()
             Ctotal_active_cases = data[data['K-means'] == 0]['Total Active Cases'].mean()
             Cprovince = data[data['K-means'] == 0]['Province'].values
+            Koment = "Klaster ini memiliki total kasus yang tergolong sedikit namun persentase tingkat kematiannya cukup banyak, dalam cluster ini perlu ditingkatkan terutama kinerja tenaga medis dan semangat pasien dalam menangani kasus COVID-19 serta tindakan-tindakan preventif yang dapat dilakukan dari masing-masing individu sesuai dengan protokol kesehatan yang ada."
         elif float(result) == 1:
             clustering = 'Cluster 2'
             Ctotal_cases = data[data['K-means'] == 1]['Total Cases'].mean()
@@ -54,6 +55,7 @@ def result():
             Ctotal_recovered = data[data['K-means'] == 1]['Total Recovered'].mean()
             Ctotal_active_cases = data[data['K-means'] == 1]['Total Active Cases'].mean()
             Cprovince = data[data['K-means'] == 1]['Province'].values
+            Koment = "Klaster ini memiliki persentase tingkat kematian yang cukup tinggi jika dilihat dari total kasus tergolong rendah maka perlu ditingkatkan kinerja dalam penanganan COVID-19 baik dari tim tenaga medis maupun pasien COVID-19 nya."
         elif float(result) == 2:
             clustering = 'Cluster 3'
             Ctotal_cases = data[data['K-means'] == 2]['Total Cases'].mean()
@@ -63,6 +65,7 @@ def result():
             Ctotal_recovered = data[data['K-means'] == 2]['Total Recovered'].mean()
             Ctotal_active_cases = data[data['K-means'] == 2]['Total Active Cases'].mean()
             Cprovince = data[data['K-means'] == 2]['Province'].values
+            Koment = "Klaster ini memiliki total kasus paling dan tingkat kematian paling tinggi maka perlu lebih ditingkatkan kembali kesadaran dari tiap individu-nya dalam menerapkan protokol Kesehatan dan melakukan berbagai tindakan preventif pencegahan COVID-19 lainnya, namun jika dilihat dari persentase kemungkinan kematian tidak berbanding jauh dengan Klaster 6 yang memiliki total kasus yang lebih sedikit, maka bisa disimpulkan bahwa tenaga medis dan pasien di kluster 2 sudah cukup baik dalam menangani kasus COVID-19."
         elif float(result) == 3:
             clustering = 'Cluster 4'
             Ctotal_cases = data[data['K-means'] == 3]['Total Cases'].mean()
@@ -72,6 +75,7 @@ def result():
             Ctotal_recovered = data[data['K-means'] == 3]['Total Recovered'].mean()
             Ctotal_active_cases = data[data['K-means'] == 3]['Total Active Cases'].mean()
             Cprovince = data[data['K-means'] == 3]['Province'].values
+            Koment = "Klaster ini memiliki persentase tingkat kematian yang cukup rendah dan total kasus juga rendah maka Tindakan yang perlu dilakukan dalam cluster ini yaitu tindakan preventif dalam pencegahan COVID-19."
         elif float(result) == 4:
             clustering = 'Cluster 5'
             Ctotal_cases = data[data['K-means'] == 4]['Total Cases'].mean()
@@ -81,6 +85,7 @@ def result():
             Ctotal_recovered = data[data['K-means'] == 4]['Total Recovered'].mean()
             Ctotal_active_cases = data[data['K-means'] == 4]['Total Active Cases'].mean()
             Cprovince = data[data['K-means'] == 4]['Province'].values
+            Koment = "Klaster ini memiliki persentase tingkat kematian yang sedang jika dilihat dari total kasus tergolong tinggi maka perlu ditingkatkan kinerja dalam penanganan COVID-19 baik dari tim tenaga medis maupun pasien COVID-19 nya."
         elif float(result) == 5:
             clustering = 'Cluster 6'
             Ctotal_cases = data[data['K-means'] == 5]['Total Cases'].mean()
@@ -89,6 +94,7 @@ def result():
             Ctotal_deaths = data[data['K-means'] == 5]['Total Deaths'].mean()
             Ctotal_recovered = data[data['K-means'] == 5]['Total Recovered'].mean()
             Cprovince = data[data['K-means'] == 5]['Province'].values
+            Koment = "Klaster ini memiliki total kasus paling dan tingkat kematian ke-2 tertinggi maka perlu lebih ditingkatkan kembali kesadaran dari tiap individu-nya dalam menerapkan protokol Kesehatan dan melakukan berbagai tindakan preventif pencegahan COVID-19 lainnya, namun jika dilihat dari persentase kemungkinan kematian tidak berbanding jauh dengan Klaster 2 yang memiliki total kasus jauh lebih banyak bahkan 4x nya, namun persentase kemungkinan kematian nya tidak berbanding jauh maka bisa disimpulkan bahwa penanganan tenaga medis dan pasien COVID-19 perlu ditingkatkan kembali."
         
         # Mengubah tipe data array menjadi string
         Cprovince = ', '.join(Cprovince)
@@ -105,5 +111,6 @@ def result():
             Ctotal_deaths=Ctotal_deaths,
             Ctotal_recovered=Ctotal_recovered,
             Ctotal_active_cases=Ctotal_active_cases,
-            Cprovince=Cprovince
+            Cprovince=Cprovince,
+            Koment=Koment
             )
